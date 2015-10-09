@@ -1,0 +1,26 @@
+{
+  "name": "generator-react-vertical",
+  "version": "0.1.0",
+  "description": "Vertically Integrated React Generator with Yeoman",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jermspeaks/generator-react-vertical.git"
+  },
+  "keywords": [
+    "generator",
+    "react",
+    "vertical",
+    "components",
+    "flux"
+  ],
+  "author": "Jeremy Wong (jermspeaks@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jermspeaks/generator-react-vertical/issues"
+  },
+  "homepage": "https://github.com/jermspeaks/generator-react-vertical#readme"
+}
