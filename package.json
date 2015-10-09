@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jermspeaks/generator-react-vertical/issues"
   },
-  "homepage": "https://github.com/jermspeaks/generator-react-vertical#readme"
+  "homepage": "https://github.com/jermspeaks/generator-react-vertical#readme",
+  "dependencies": {
+    "yeoman-generator": "^0.20.3"
+  }
 }
