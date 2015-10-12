@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "react-test-project",
   "version": "",
   "homepage": "",
   "authors": [
@@ -15,5 +15,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+      "color": "~2.5.0"
+  }
 }

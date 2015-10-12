@@ -1,0 +1,21 @@
+{
+  "name": "generated-react-project",
+  "version": "",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "homepage": "",
+  "devDependencies": {
+    "bower": "~1.5.3",
+    "webpack": "~1.12.2"
+  }
+}
