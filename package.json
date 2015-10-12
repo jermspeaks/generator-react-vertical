@@ -2,7 +2,7 @@
   "name": "generator-react-vertical",
   "version": "0.1.0",
   "description": "Vertically Integrated React Generator with Yeoman",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jermspeaks/generator-react-vertical#readme",
   "dependencies": {
+    "mkdirp": "^0.5.1",
     "yeoman-generator": "^0.20.3"
   }
 }
