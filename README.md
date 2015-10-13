@@ -1,5 +1,7 @@
 # React/Flux Module Generator
 
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/jermspeaks/generator-react-vertical/blob/master/LICENSE)
+
 A Yeoman generator for React & Flux for projects vertically integrated.
 
 Most React and Flux templates have a horizontal structure for their projects.
