@@ -1,7 +1,7 @@
 {
-  "name": "generated-react-project",
-  "version": "",
-  "description": "",
+  "name": "<%= appName %>",
+  "version": "<%= appVersion %>",
+  "description": "<%= appDescription %>",
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": ""
   },
   "keywords": [],
-  "author": "",
+  "author": "<%= appAuthor %> <<%= appEmail %>>",
   "license": "MIT",
   "homepage": "",
   "devDependencies": {

@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jermspeaks/generator-react-vertical#readme",
   "dependencies": {
+    "chalk": "^1.1.1",
     "mkdirp": "^0.5.1",
     "yeoman-generator": "^0.20.3",
     "yosay": "^1.0.5"

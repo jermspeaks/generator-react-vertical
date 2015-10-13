@@ -1,14 +1,14 @@
 {
-  "name": "react-test-project",
-  "version": "",
+  "name": "<%= appName %>",
+  "version": "<%= appVersion %>",
   "homepage": "",
   "authors": [
-    ""
+    "<%= appAuthor %> <<%= appEmail %>>"
   ],
   "moduleType": [
     "globals"
   ],
-  "license": "",
+  "license": "<%= appLicense %>",
   "ignore": [
     "**/.*",
     "node_modules",
