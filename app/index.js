@@ -76,40 +76,43 @@ module.exports = generators.Base.extend({
     callback();
   },
 
-  constructor: function() {
-    generators.Base.apply(this, arguments);
-
-    this.option('sass', {
-      desc: 'Use classic SASS syntax instead of SCSS',
-    });
-
-    this.log(this.options.test);
-  },
+  // constructor: function() {
+  //   generators.Base.apply(this, arguments);
+	//
+  //   this.option('sass', {
+  //     desc: 'Use classic SASS syntax instead of SCSS',
+  //   });
+	//
+  //   this.log(this.options.test);
+  // },
 
   initializing: function() {
     var message = chalk.bgBlack.bold('\nWelcome to React-Vertical Project\n') + chalk.underline('JS React/Flux Compiler\n');
     this.log(yosay(message));
+
+    this.log(chalk.bold('\nMain Generator is a WIP. For now, please user the subgenerator\n'));
+    this.log('\nyo react-vertical:module #{moduleName}\n');
   },
 
-  prompting: function() {
-    var done = this.async();
-
-    this.prompt(this._getPrompts(), function(answers) {
-      this._saveAnswers(answers, done);
-    }.bind(this));
-
-  },
-
-  configuring: function() {
-    this.config.save();
-  },
-
-  writing: function() {
-    this._createProjectFileSystem();
-  },
-
-  install: function() {
-    this.npmInstall();
-    this.bowerInstall();
-  },
+  // prompting: function() {
+  //   var done = this.async();
+	//
+  //   this.prompt(this._getPrompts(), function(answers) {
+  //     this._saveAnswers(answers, done);
+  //   }.bind(this));
+	//
+  // },
+	//
+  // configuring: function() {
+  //   this.config.save();
+  // },
+	//
+  // writing: function() {
+  //   this._createProjectFileSystem();
+  // },
+	//
+  // install: function() {
+  //   this.npmInstall();
+  //   this.bowerInstall();
+  // },
 });

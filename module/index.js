@@ -45,6 +45,8 @@ module.exports = generators.Base.extend({
       desc: 'Name of the module',
     });
 
+    // TODO add option for service (bool)
+
     this.log('Creating module ' + this.moduleName + '.');
   },
 
