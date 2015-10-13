@@ -126,4 +126,10 @@ Replace #{CommonComponentName} with your own module name.
 
 ## Contributing
 
-`WIP`
+Anyone and everyone is welcome to [contribute](CONTRIBUTING.md),
+however, if you decide to get involved, please take a moment to review
+the [guidelines](CONTRIBUTING.md):
+
+* [Bug reports](CONTRIBUTING.md#bugs)
+* [Feature requests](CONTRIBUTING.md#features)
+* [Pull requests](CONTRIBUTING.md#pull-requests)
