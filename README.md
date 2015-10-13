@@ -74,7 +74,21 @@ Replace #{Module} with your own module name.
 | ----------- | ----------- | ---- | -------- |
 | moduleName  | # Name of the module  | String	| true |
 
+#### Examples
 
-<!-- explain module -->
+Without services, the following command will generate the following:
 
-<!-- show example -->
+```bash
+yo react-vertical:module auth
+# Generates the following:
+.
+└── Auth
+    ├── actions
+    │   └── AuthActions.js
+    ├── components
+    │   └── AuthPage
+    ├── constants
+    │   └── AuthConstants.js
+    └── stores
+        └── AuthStores.js
+```
