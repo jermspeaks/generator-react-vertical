@@ -36,11 +36,14 @@ npm install -g generator-react-vertical
 yo react-vertical
 ```
 
-## Sub-generator
+## Sub-generators
 
-When you need to start creating new modules, simple use the sub-generator `module`.
+The sub generators assumes you already ahve a project up and running. They are to
+help you through developing new modules, components, etc.
 
 ### Module
+
+When you need to start creating new modules, simple use the sub-generator `module`.
 
 Within the module sub-generator, the following default files are generated for you.
 Replace #{Module} with your own module name.
@@ -92,3 +95,32 @@ yo react-vertical:module auth
     └── stores
         └── AuthStores.js
 ```
+
+### Common
+
+If you want to create a common component other modules depend on, this sub-generator
+will create the files needed for you.
+
+Within the common sub-generator, the following default files are generated for you.
+Replace #{CommonComponentName} with your own module name.
+
+```bash
+.
+└── src
+    └── common
+        └── components
+             └── CommonComponentName
+                 ├── CommonComponentName.js
+                 ├── CommonComponentName.scss
+                 └── package.json
+```
+
+#### Arguments
+
+| Arguments   | Description | Type | Required |
+| ----------- | ----------- | ---- | -------- |
+| commonName  | Name of the module | String | true |
+
+## Contributing
+
+`WIP`
