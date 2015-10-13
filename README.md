@@ -1,5 +1,6 @@
 # React/Flux Module Generator
 
+[![Dependency Status](https://gemnasium.com/codeship/documentation.svg)](https://gemnasium.com/jermspeaks/generator-react-vertical)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/jermspeaks/generator-react-vertical/blob/master/LICENSE)
 
 A Yeoman generator for React & Flux for projects vertically integrated.
