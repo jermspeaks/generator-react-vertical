@@ -1,0 +1,6 @@
+{
+  "name": "<%= moduleName %>Page",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./<%= moduleName %>Page.js"
+}
