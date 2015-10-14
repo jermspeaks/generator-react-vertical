@@ -9,8 +9,8 @@ module.exports = generators.Base.extend({
   _createProjectFileSystem: function() {
     var destRoot = this.destinationRoot(),
 			sourceRoot = this.sourceRoot(),
-			appDir = destRoot + '/app',
-      sassFileExtension = (this.options.sass) ? '.sass' : '.scss',
+      // TODO create folder?
+      appDir = destRoot + '/app',
       templateContext = {
         appName: this.appName,
         appDescription: this.appDescription,
@@ -20,23 +20,24 @@ module.exports = generators.Base.extend({
         appEmail: this.appEmail,
       };
 
-    mkdirp(appDir + '/scripts');
-    mkdirp(appDir + '/img');
-		mkdirp(appDir + '/sass');
+    mkdirp(appDir + '/src');
+    mkdirp(appDir + '/tools');
+    mkdirp(appDir + '/tests');
 
-    this.fs.copy(sourceRoot + '/.bowerrc', destRoot + '/.bowerrc');
+    this.fs.copy(sourceRoot + '/.babelrc', destRoot + '/.babelrc');
+    this.fs.copy(sourceRoot + '/.csscomb.json', destRoot + '/.csscomb.json');
+    this.fs.copy(sourceRoot + '/.csslintrc', destRoot + '/.csslintrc');
     this.fs.copy(sourceRoot + '/.editorconfig', destRoot + '/.editorconfig');
+    this.fs.copy(sourceRoot + '/.eslintrc', destRoot + '/.eslintrc');
+    this.fs.copy(sourceRoot + '/.flowconfig', destRoot + '/.flowconfig');
+    this.fs.copy(sourceRoot + '/.jscsrc', destRoot + '/.jscsrc');
     this.fs.copy(sourceRoot + '/.jshintrc', destRoot + '/.jshintrc');
-    this.fs.copyTpl(sourceRoot + '/bower.json', destRoot + '/bower.json', templateContext);
-    this.fs.copy(sourceRoot + '/CONTRIBUTING.md', destRoot + '/CONTRIBUTING.md');
-    this.fs.copy(sourceRoot + '/humans.txt', appDir + '/humans.txt');
+    this.fs.copy(sourceRoot + '/.scss-lint.yml', destRoot + '/.scss-lint.yml');
+    this.fs.copy(sourceRoot + '/.travis.yml', destRoot + '/.travis.yml');
+    this.fs.copyTpl(sourceRoot + '/license.txt', destRoot + '/license.txt', templateContext);
+    this.fs.copy(sourceRoot + '/preprocessor.js', destRoot + '/preprocessor.js');
     this.fs.copyTpl(sourceRoot + '/package.json', destRoot + '/package.json', templateContext);
     this.fs.copyTpl(sourceRoot + '/README.md', destRoot + '/README.md', templateContext);
-    this.fs.copy(sourceRoot + '/robots.txt', appDir + '/robots.txt');
-
-    this.fs.copyTpl(sourceRoot + '/sass/_vars' + sassFileExtension, appDir + '/sass/_vars' + sassFileExtension, templateContext);
-    this.fs.copyTpl(sourceRoot + '/sass/_name-space' + sassFileExtension, appDir + '/sass/_name-space' + sassFileExtension, templateContext);
-    this.fs.copyTpl(sourceRoot + '/sass/host' + sassFileExtension, appDir + '/sass/host' + sassFileExtension, templateContext);
   },
 
   _getPrompts: function() {
@@ -94,25 +95,24 @@ module.exports = generators.Base.extend({
     this.log('\nyo react-vertical:module #{moduleName}\n');
   },
 
-  // prompting: function() {
-  //   var done = this.async();
-	//
-  //   this.prompt(this._getPrompts(), function(answers) {
-  //     this._saveAnswers(answers, done);
-  //   }.bind(this));
-	//
-  // },
-	//
-  // configuring: function() {
-  //   this.config.save();
-  // },
-	//
-  // writing: function() {
-  //   this._createProjectFileSystem();
-  // },
-	//
-  // install: function() {
-  //   this.npmInstall();
-  //   this.bowerInstall();
-  // },
+  prompting: function() {
+    var done = this.async();
+
+    this.prompt(this._getPrompts(), function(answers) {
+      this._saveAnswers(answers, done);
+    }.bind(this));
+
+  },
+
+  configuring: function() {
+    this.config.save();
+  },
+
+  writing: function() {
+    this._createProjectFileSystem();
+  },
+
+  install: function() {
+    this.npmInstall();
+  },
 });
