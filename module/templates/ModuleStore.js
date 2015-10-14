@@ -1,4 +1,4 @@
-import Dispatcher from '../../core/Dispatcher';
+import Dispatcher from '../../common/Dispatcher';
 import BaseStore from '../../common/stores/BaseStore';
 import <%= moduleName %>Constants from '../constants/<%= moduleName %>Constants';
 
