@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './<%= moduleName %>Page.scss';
 import <%= moduleName %>Store from '../../stores/<%= moduleName %>Store';
+<% if (services) { %>
+  import <%= moduleName %>Service from '../../stores/<%= moduleName %>Service';
+<% } %>
 
 class <%= moduleName %>Page extends Component {
 

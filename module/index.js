@@ -16,10 +16,12 @@ module.exports = generators.Base.extend({
       actions: moduleDir + '/actions',
       components: moduleDir + '/components/' + moduleName + 'Page',
       constants: moduleDir + '/constants',
+      services: moduleDir + '/services',
       stores: moduleDir + '/stores',
     };
     var templateContext = {
       moduleName: moduleName,
+      services: this.services,
     };
 
     mkdirp(moduleDir + '/actions');
@@ -27,6 +29,9 @@ module.exports = generators.Base.extend({
     mkdirp(moduleDir + '/components/' + moduleName + 'Page');
     mkdirp(moduleDir + '/constants');
     mkdirp(moduleDir + '/stores');
+    if (this.services) {
+      mkdirp(moduleDir + '/services');
+    }
 
     this.fs.copyTpl(sourceRoot + '/ModuleActions.js', moduleFolders.actions + '/' + moduleName + 'Actions.js', templateContext);
     this.fs.copyTpl(sourceRoot + '/ModulePage.js', moduleFolders.components + '/' + moduleName + 'Page.js', templateContext);
@@ -34,6 +39,9 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(sourceRoot + '/package.json', moduleFolders.components + '/package.json', templateContext);
     this.fs.copy(sourceRoot + '/ModuleConstants.js', moduleFolders.constants + '/' + moduleName + 'Constants.js');
     this.fs.copyTpl(sourceRoot + '/ModuleStore.js', moduleFolders.stores + '/' + moduleName + 'Stores.js', templateContext);
+    if (this.services) {
+      this.fs.copyTpl(sourceRoot + '/ModuleService.js', moduleFolders.services + '/' + moduleName + 'Service.js', templateContext);
+    }
   },
 
   constructor: function() {
@@ -45,7 +53,13 @@ module.exports = generators.Base.extend({
       desc: 'Name of the module',
     });
 
-    // TODO add option for service (bool)
+    this.option('services',  {
+      desc: 'Include services in the module\nGenerally for APIs',
+      type: Boolean,
+      defaults: false,
+    });
+
+    this.services = this.options.services;
 
     this.log('Creating module ' + this.moduleName + '.');
   },
