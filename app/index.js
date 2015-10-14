@@ -11,7 +11,8 @@ module.exports = generators.Base.extend({
     var sourceRoot = this.sourceRoot();
     var appDir = destRoot + '/src';
     var toolDir = destRoot + '/tools';
-    var testDir = destRoot + '/tests';
+
+    // var testDir = destRoot + '/tests';
     var templateContext = {
       appName: this.appName,
       appDescription: this.appDescription,
@@ -23,19 +24,11 @@ module.exports = generators.Base.extend({
 
     mkdirp(appDir);
     mkdirp(toolDir);
-    mkdirp(testDir);
+
+    // mkdirp(testDir);
 
     // Base Directory
-    this.template('.babelrc', destRoot + '/.babelrc');
-    this.template('.csscomb.json', destRoot + '/.csscomb.json');
-    this.template('.csslintrc', destRoot + '/.csslintrc');
-    this.template('.editorconfig', destRoot + '/.editorconfig');
-    this.template('.eslintrc', destRoot + '/.eslintrc');
-    this.template('.flowconfig', destRoot + '/.flowconfig');
-    this.template('.jscsrc', destRoot + '/.jscsrc');
-    this.template('.jshintrc', destRoot + '/.jshintrc');
-    this.template('.scss-lint.yml', destRoot + '/.scss-lint.yml');
-    this.template('.travis.yml', destRoot + '/.travis.yml');
+    this.template('.*', destRoot);
     this.template('preprocessor.js', destRoot + '/preprocessor.js');
     this.fs.copyTpl(this.templatePath('license.txt'),
       destRoot + '/license.txt', templateContext);
@@ -45,9 +38,15 @@ module.exports = generators.Base.extend({
       destRoot + '/README.md', templateContext);
 
     // Source Directory
-    this.template('src/app.js', appDir + '/app.js');
-    this.template('src/config.js', appDir + '/config.js');
-    this.template('src/routes.js', appDir + '/routes.js');
+    this.template('src/*.js', appDir);
+    this.template('src/*/*.*', appDir);
+
+    // Tools Directory
+    this.template('tools/*.js', toolDir);
+
+    // Tests Directory
+    // this.template('tests/*.js', appDir);
+
   },
 
   _getPrompts: function() {

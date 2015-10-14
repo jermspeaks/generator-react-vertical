@@ -55,16 +55,42 @@ yo react-vertical
 ├── license.txt
 ├── package.json
 ├── preprocessor.js
-└── src
-    ├── app.js
-    ├── config.js
-    ├── routes.js
-    ├── src
-    ├── tests
-    └── tools
+├── src
+│   ├── app.js
+│   ├── common
+│   │   ├── Dispatcher.js
+│   │   ├── HttpClient.js
+│   │   └── Location.js
+│   ├── config.js
+│   ├── public
+│   │   ├── apple-touch-icon.png
+│   │   ├── browserconfig.xml
+│   │   ├── crossdomain.xml
+│   │   ├── favicon.ico
+│   │   ├── humans.txt
+│   │   ├── robots.txt
+│   │   ├── tile-wide.png
+│   │   └── tile.png
+│   ├── routes.js
+│   ├── server
+│   │   ├── package.json
+│   │   └── server.js
+│   └── utils
+│       ├── DOMUtils.js
+│       └── fs.js
+└── tools
+    ├── build.js
+    ├── bundle.js
+    ├── clean.js
+    ├── config.js
+    ├── copy.js
+    ├── serve.js
+    └── start.js
 ```
 
 Besides project base files, includes Source, Tests, and Tools folders.
+
+`In Progress`: Tests
 
 ### Options
 
