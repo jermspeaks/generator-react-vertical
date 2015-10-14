@@ -24,7 +24,7 @@ class Footer extends Component {
     return (
       <div className="Footer">
         <div className="Footer-container">
-          <span className="Footer-text">© Inform, Inc. 2015</span>
+          <span className="Footer-text">© Your Brand 2015</span>
           <span className="Footer-spacer">·</span>
           <Link className="Footer-link" to="/">
             <span>Home</span>

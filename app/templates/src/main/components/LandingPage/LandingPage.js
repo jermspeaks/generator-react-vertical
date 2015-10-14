@@ -15,7 +15,7 @@ class LandingPage extends Component {
       <div className='LandingPage'>
         <div className='LandingPage-container'>
           <h1>{title}</h1>
-          <p>Inform Digital Media Exchange&#8482;</p>
+          <p>Your Brand Here</p>
         </div>
       </div>
     );
