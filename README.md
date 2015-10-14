@@ -33,11 +33,46 @@ npm install -g generator-react-vertical
 
 ## Base Generator
 
-`In Development`
+Creates the base project. Loosely based off [React-starter-kit](https://github.com/kriasoft/react-starter-kit).
 
 ```bash
 yo react-vertical
+
+# Builds
+.
+├── .babelrc
+├── .csscomb.json
+├── .csslintrc
+├── .editorconfig
+├── .eslintrc
+├── .flowconfig
+├── .jscsrc
+├── .jshintrc
+├── .scss-lint.yml
+├── .travis.yml
+├── .yo-rc.json
+├── README.md
+├── license.txt
+├── package.json
+├── preprocessor.js
+└── src
+    ├── app.js
+    ├── config.js
+    ├── routes.js
+    ├── src
+    ├── tests
+    └── tools
 ```
+
+Besides project base files, includes Source, Tests, and Tools folders.
+
+### Options
+
+| Option | Description | Default |
+| ------ | ----------- | ------- |
+| `-h`, `--help`     | Print the generator's options and usage    |                |
+| `--skip-cache`     | Do not remember prompt answers             | Default: false |
+| `--skip-install`   | Do not automatically install dependencies  | Default: false |
 
 ## Sub-generators
 

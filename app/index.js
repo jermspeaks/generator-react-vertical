@@ -1,43 +1,53 @@
 'use strict';
 
-var generators = require('yeoman-generator'),
-	mkdirp = require('mkdirp'),
-  yosay = require('yosay'),
-  chalk = require('chalk');
+var generators = require('yeoman-generator');
+var mkdirp = require('mkdirp');
+var yosay = require('yosay');
+var chalk = require('chalk');
 
 module.exports = generators.Base.extend({
   _createProjectFileSystem: function() {
-    var destRoot = this.destinationRoot(),
-			sourceRoot = this.sourceRoot(),
-      // TODO create folder?
-      appDir = destRoot + '/app',
-      templateContext = {
-        appName: this.appName,
-        appDescription: this.appDescription,
-        appVersion: this.appVersion,
-        appLicense: this.appLicense,
-        appAuthor: this.appAuthor,
-        appEmail: this.appEmail,
-      };
+    var destRoot = this.destinationRoot();
+    var sourceRoot = this.sourceRoot();
+    var appDir = destRoot + '/src';
+    var toolDir = destRoot + '/tools';
+    var testDir = destRoot + '/tests';
+    var templateContext = {
+      appName: this.appName,
+      appDescription: this.appDescription,
+      appVersion: this.appVersion,
+      appLicense: this.appLicense,
+      appAuthor: this.appAuthor,
+      appEmail: this.appEmail,
+    };
 
-    mkdirp(appDir + '/src');
-    mkdirp(appDir + '/tools');
-    mkdirp(appDir + '/tests');
+    mkdirp(appDir);
+    mkdirp(toolDir);
+    mkdirp(testDir);
 
-    this.fs.copy(sourceRoot + '/.babelrc', destRoot + '/.babelrc');
-    this.fs.copy(sourceRoot + '/.csscomb.json', destRoot + '/.csscomb.json');
-    this.fs.copy(sourceRoot + '/.csslintrc', destRoot + '/.csslintrc');
-    this.fs.copy(sourceRoot + '/.editorconfig', destRoot + '/.editorconfig');
-    this.fs.copy(sourceRoot + '/.eslintrc', destRoot + '/.eslintrc');
-    this.fs.copy(sourceRoot + '/.flowconfig', destRoot + '/.flowconfig');
-    this.fs.copy(sourceRoot + '/.jscsrc', destRoot + '/.jscsrc');
-    this.fs.copy(sourceRoot + '/.jshintrc', destRoot + '/.jshintrc');
-    this.fs.copy(sourceRoot + '/.scss-lint.yml', destRoot + '/.scss-lint.yml');
-    this.fs.copy(sourceRoot + '/.travis.yml', destRoot + '/.travis.yml');
-    this.fs.copyTpl(sourceRoot + '/license.txt', destRoot + '/license.txt', templateContext);
-    this.fs.copy(sourceRoot + '/preprocessor.js', destRoot + '/preprocessor.js');
-    this.fs.copyTpl(sourceRoot + '/package.json', destRoot + '/package.json', templateContext);
-    this.fs.copyTpl(sourceRoot + '/README.md', destRoot + '/README.md', templateContext);
+    // Base Directory
+    this.template('.babelrc', destRoot + '/.babelrc');
+    this.template('.csscomb.json', destRoot + '/.csscomb.json');
+    this.template('.csslintrc', destRoot + '/.csslintrc');
+    this.template('.editorconfig', destRoot + '/.editorconfig');
+    this.template('.eslintrc', destRoot + '/.eslintrc');
+    this.template('.flowconfig', destRoot + '/.flowconfig');
+    this.template('.jscsrc', destRoot + '/.jscsrc');
+    this.template('.jshintrc', destRoot + '/.jshintrc');
+    this.template('.scss-lint.yml', destRoot + '/.scss-lint.yml');
+    this.template('.travis.yml', destRoot + '/.travis.yml');
+    this.template('preprocessor.js', destRoot + '/preprocessor.js');
+    this.fs.copyTpl(this.templatePath('license.txt'),
+      destRoot + '/license.txt', templateContext);
+    this.fs.copyTpl(this.templatePath('_package.json'),
+      destRoot + '/package.json', templateContext);
+    this.fs.copyTpl(this.templatePath('README.md'),
+      destRoot + '/README.md', templateContext);
+
+    // Source Directory
+    this.template('src/app.js', appDir + '/app.js');
+    this.template('src/config.js', appDir + '/config.js');
+    this.template('src/routes.js', appDir + '/routes.js');
   },
 
   _getPrompts: function() {
@@ -77,15 +87,9 @@ module.exports = generators.Base.extend({
     callback();
   },
 
-  // constructor: function() {
-  //   generators.Base.apply(this, arguments);
-	//
-  //   this.option('sass', {
-  //     desc: 'Use classic SASS syntax instead of SCSS',
-  //   });
-	//
-  //   this.log(this.options.test);
-  // },
+  constructor: function() {
+    generators.Base.apply(this, arguments);
+  },
 
   initializing: function() {
     var message = chalk.bgBlack.bold('\nWelcome to React-Vertical Project\n') + chalk.underline('JS React/Flux Compiler\n');
@@ -113,6 +117,9 @@ module.exports = generators.Base.extend({
   },
 
   install: function() {
-    this.npmInstall();
+    this.installDependencies({
+      skipInstall: this.options['skip-install'],
+      bower: false,
+    });
   },
 });
