@@ -70,9 +70,10 @@ Replace #{Module} with your own module name.
 
 | Option | Description | Default |
 | ------ | ----------- | ------- |
-| `-h`, `--help`	| Print the generator's options and usage    |                |
-| `--skip-cache`    | Do not remember prompt answers             | Default: false |
-| `--skip-install`  | Do not automatically install dependencies  | Default: false |
+| `-h`, `--help`     | Print the generator's options and usage    |                |
+| `-s`, `--services` | Include services in the module             |                |
+| `--skip-cache`     | Do not remember prompt answers             | Default: false |
+| `--skip-install`   | Do not automatically install dependencies  | Default: false |
 
 #### Arguments
 

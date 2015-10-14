@@ -56,6 +56,7 @@ module.exports = generators.Base.extend({
     this.option('services',  {
       desc: 'Include services in the module\nGenerally for APIs',
       type: Boolean,
+      alias: 's',
       defaults: false,
     });
 
