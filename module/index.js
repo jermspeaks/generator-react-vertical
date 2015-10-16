@@ -36,7 +36,7 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(sourceRoot + '/ModuleActions.js', moduleFolders.actions + '/' + moduleName + 'Actions.js', templateContext);
     this.fs.copyTpl(sourceRoot + '/ModulePage.js', moduleFolders.components + '/' + moduleName + 'Page.js', templateContext);
     this.fs.copyTpl(sourceRoot + '/ModulePage.scss', moduleFolders.components + '/' + moduleName + 'Page.scss', templateContext);
-    this.fs.copyTpl(sourceRoot + '/package.json', moduleFolders.components + '/package.json', templateContext);
+    this.fs.copyTpl(sourceRoot + '/_package.json', moduleFolders.components + '/package.json', templateContext);
     this.fs.copy(sourceRoot + '/ModuleConstants.js', moduleFolders.constants + '/' + moduleName + 'Constants.js');
     this.fs.copyTpl(sourceRoot + '/ModuleStore.js', moduleFolders.stores + '/' + moduleName + 'Stores.js', templateContext);
     if (this.services) {

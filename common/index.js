@@ -21,7 +21,7 @@ module.exports = generators.Base.extend({
 
     this.fs.copyTpl(sourceRoot + '/CommonComponent.js', commonComponentFolder + '/' + commonName + '.js', templateContext);
     this.fs.copyTpl(sourceRoot + '/CommonComponent.scss', commonComponentFolder + '/' + commonName + '.scss', templateContext);
-    this.fs.copyTpl(sourceRoot + '/package.json', commonComponentFolder + '/package.json', templateContext);
+    this.fs.copyTpl(sourceRoot + '/_package.json', commonComponentFolder + '/package.json', templateContext);
   },
 
   constructor: function() {

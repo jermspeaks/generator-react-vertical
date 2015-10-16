@@ -81,6 +81,9 @@
     "postcss-loader": "^0.5.1",
     "postcss-nested": "^1.0.0",
     "psi": "^1.0.6",
+    "react": "^0.14.0",
+    "react-addons-test-utils": "^0.14.0",
+    "react-dom": "^0.14.0-rc1",
     "react-transform-hmr": "^1.0.1",
     "replace": "^0.3.0",
     "rimraf": "^2.4.3",
@@ -97,7 +100,10 @@
     "rootDir": "./src",
     "scriptPreprocessor": "../preprocessor.js",
     "unmockedModulePathPatterns": [
-      "react"
+      "react",
+      "fbjs",
+      "react-dom",
+      "react-addons-test-utils"
     ]
   },
   "scripts": {
