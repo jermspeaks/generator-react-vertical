@@ -27,8 +27,16 @@ module.exports = generators.Base.extend({
     mkdirp(moduleDir + '/actions');
     mkdirp(moduleDir + '/components');
     mkdirp(moduleDir + '/components/' + moduleName + 'Page');
+
+    // Create Test Directory
+    if (this.tests) {
+      mkdirp(moduleDir + '/components/' + moduleName + 'Page/__tests__');
+    }
+
     mkdirp(moduleDir + '/constants');
     mkdirp(moduleDir + '/stores');
+
+    // Add Services if Services option selected
     if (this.services) {
       mkdirp(moduleDir + '/services');
     }
@@ -41,6 +49,10 @@ module.exports = generators.Base.extend({
     this.fs.copyTpl(sourceRoot + '/ModuleStore.js', moduleFolders.stores + '/' + moduleName + 'Stores.js', templateContext);
     if (this.services) {
       this.fs.copyTpl(sourceRoot + '/ModuleService.js', moduleFolders.services + '/' + moduleName + 'Service.js', templateContext);
+    }
+
+    if (!!this.tests) {
+      this.fs.copyTpl(sourceRoot + '/ModuleTests.js', moduleFolders.components + '/__tests__/' + moduleName + 'Page-tests.js', templateContext);
     }
   },
 
@@ -60,7 +72,20 @@ module.exports = generators.Base.extend({
       defaults: false,
     });
 
+    this.option('tests',  {
+      desc: 'Include tests for the component',
+      type: Boolean,
+      alias: 't',
+      defaults: true,
+    });
+
     this.services = this.options.services;
+
+    // option string caught as string and not boolean.
+    // This method validates whether the option value is true or not
+    // NOTE if user types anything else in, besides false,
+    // the value is still false. May be an issue
+    this.tests = (this.options.tests === 'true' || this.options.tests === true);
 
     this.log('Creating module ' + this.moduleName + '.');
   },
