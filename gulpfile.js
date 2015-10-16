@@ -39,15 +39,6 @@ function inc(importance) {
         .pipe(tagVersion());
 }
 
-/**
- * Pushes changes to Github
- */
-gulp.task('push', function() {
-  return git.push('origin', 'master', {args: '--tags'}, function(err) {
-    if (err) throw err;
-  });
-});
-
 gulp.task('patch', function() {
     return inc('patch');
 });
@@ -60,6 +51,24 @@ gulp.task('release', function() {
     return inc('major');
 });
 
-gulp.task('push-patch', ['patch', 'push']);
-gulp.task('push-feature', ['feature', 'push']);
-gulp.task('push-release', ['release', 'push']);
+/**
+ * Pushes changes to Github
+ */
+gulp.task('push-patch', ['patch'], function() {
+  return git.push('origin', 'master', {args: '--tags'}, function(err) {
+    if (err) throw err;
+  });
+});
+
+
+gulp.task('push-feature', ['feature'], function() {
+  return git.push('origin', 'master', {args: '--tags'}, function(err) {
+    if (err) throw err;
+  });
+});
+
+gulp.task('push-release', ['release'], function() {
+  return git.push('origin', 'master', {args: '--tags'}, function(err) {
+    if (err) throw err;
+  });
+});
