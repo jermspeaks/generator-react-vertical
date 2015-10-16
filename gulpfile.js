@@ -36,9 +36,12 @@ function inc(importance) {
         .pipe(filter('package.json'))
 
         // **tag it in the repository**
-        .pipe(tagVersion());
+        .pipe(tagVersion())
 
-        // TODO add hook for pushing to Github
+        // push to Github this release
+        .pipe(git.push('origin', 'master', {args: '--tags'}, function (err) {
+            if (err) throw err;
+        }));
 }
 
 gulp.task('patch', function() {
