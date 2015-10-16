@@ -1,6 +1,6 @@
 {
   "name": "generator-react-vertical",
-  "version": "2.1.10",
+  "version": "2.2.0",
   "description": "Vertically Integrated React Generator with Yeoman",
   "main": "app/index.js",
   "repository": {
