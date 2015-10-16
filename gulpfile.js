@@ -37,6 +37,8 @@ function inc(importance) {
 
         // **tag it in the repository**
         .pipe(tagVersion());
+
+        // TODO add hook for pushing to Github
 }
 
 gulp.task('patch', function() {
