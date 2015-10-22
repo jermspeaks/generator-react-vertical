@@ -186,6 +186,23 @@ Replace #{CommonComponentName} with your own module name.
 | ----------- | ----------- | ---- | -------- |
 | commonName  | Name of the module | String | true |
 
+#### Examples
+
+The following command will generate the following:
+
+```bash
+yo react-vertical:common TextBox
+# Generates the following:
+.
+└── src
+    └── common
+        └── components
+             └── TextBox
+                 ├── TextBox.js
+                 ├── TextBox.scss
+                 └── package.json
+```
+
 ## Contributing
 
 Anyone and everyone is welcome to [contribute](CONTRIBUTING.md),
